@@ -3,7 +3,9 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
-
+//add the hidden class to the error modal in html
+const modal = document.querySelector('#modal');
+modal.className = 'hidden';
 
 
 
