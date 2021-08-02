@@ -2,22 +2,33 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
-// Your JavaScript code goes here!
-//add the hidden class to the error modal in html
 const modal = document.querySelector('#modal');
 modal.className = 'hidden';
-
-//when user clicks empty heart
-  //invoke mimicServerCall
-  mimicServerCall()
-  .then()
-  .catch(() => {
-    modal.classList.remove('hidden');
-    setTimeout(() => {
-      modal.className = 'hidden';
-    },3000)
-  })
+mimicServerCall()
+.then(likeButton)
+.catch(() => {
+  modal.classList.remove('hidden');
+  setTimeout(() => {
+    modal.className = 'hidden';
+  },3000)
+})
   
+function likeButton() {
+  const hearts = document.querySelectorAll('.like-glyph');
+  hearts.forEach(heart => {
+    heart.addEventListener('click', activateHeart);
+  })
+}
+
+function activateHeart(e) {
+  if (e.target.textContent === EMPTY_HEART) {
+    e.target.textContent = FULL_HEART;
+    e.target.classList.add('activated-heart');
+  } else {
+    e.target.textContent = EMPTY_HEART;
+    e.target.classList.remove('activated-heart');
+  }
+}
 
 
 //------------------------------------------------------------------------------
