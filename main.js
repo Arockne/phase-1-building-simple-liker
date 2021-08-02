@@ -7,6 +7,17 @@ const FULL_HEART = '♥'
 const modal = document.querySelector('#modal');
 modal.className = 'hidden';
 
+//when user clicks empty heart
+  //invoke mimicServerCall
+  mimicServerCall()
+  .then()
+  .catch(() => {
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+      modal.className = 'hidden';
+    },3000)
+  })
+  
 
 
 //------------------------------------------------------------------------------
